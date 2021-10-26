@@ -1,17 +1,19 @@
 ###LIB###
-import os as Os
+import os   as Os
+import sys  as System
 
-from datetime import datetime as Date
-from dotenv import load_dotenv as Env
+from Class.Base import Base
+from datetime   import datetime     as Date
+from dotenv     import load_dotenv  as Env
 
 Env()
 
 
 
 ###CLASS###
-class Logger:
+class Logger(Base):
     """Log Class"""
-    name    = "Logger"
+    Class   = "Logger"
     message = ""
 
 
@@ -57,6 +59,10 @@ class Logger:
     def update(self, message):
         self.message = message
 
-    def show(self):
+    def d(self):
+        print(type(self.message))
         print(self.message)
 
+    def dd(self):
+        self.d()
+        System.exit()

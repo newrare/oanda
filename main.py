@@ -1,22 +1,12 @@
 ###LIB###
-import requests
-import sys
-
-from Class.Logger import Logger
+from Class.Logger   import Logger
+from Class.Api      import Api
 
 
 
 ###MAIN###
-Log = Logger("super")
-Log.info()
+#Logger("keke").show()
+#Api().show()
 
-#ending
-sys.exit()
-
-
-
-#curl
-Res = requests.get('https://stackoverflow.com/questions/26000336')
-
+Res = Api().get('https://stackoverflow.com/questions/26000336')
 print(Res)
-
