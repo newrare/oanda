@@ -8,5 +8,6 @@ from Class.Api      import Api
 #Logger("keke").show()
 #Api().show()
 
-Res = Api().get('https://stackoverflow.com/questions/26000336')
-print(Res)
+Result = Api().get('https://api-fxtrade.oanda.com/v3/accounts')
+print(Result.reason)
+print(Result.text)

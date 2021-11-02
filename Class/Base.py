@@ -9,8 +9,9 @@ class Base:
 
     ##METHOD##
     def show(self):
-        for members in Inspect.getmembers(self):
-            if not members[0].startswith("_") and isinstance(members[1], str):
-                print("{:<15s}{:>1s}".format(members[0],members[1]))
-                #attribute = members[0] + " => " + members[1]
-                #print(attribute)
+        self.detail(self)
+
+    def detail(self, Object):
+        for members in Inspect.getmembers(Object):
+                if not members[0].startswith("_") and isinstance(members[1], str):
+                    print("{:<15s}{:>1s}".format(members[0],members[1]))

@@ -25,4 +25,5 @@ class Api(Base):
 
     ##METHOD##
     def get(self, uri):
-        return Request.get(uri)
+        token = "Bearer " + self.key
+        return Request.get(uri, headers={"Authorization": token})
