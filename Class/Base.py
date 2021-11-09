@@ -1,5 +1,6 @@
 ###LIB###
-import inspect as Inspect
+import inspect  as Inspect
+import json     as Json
 
 
 
@@ -12,6 +13,11 @@ class Base:
         self.detail(self)
 
     def detail(self, Object):
-        for members in Inspect.getmembers(Object):
-                if not members[0].startswith("_") and isinstance(members[1], str):
-                    print("{:<15s}{:>1s}".format(members[0],members[1]))
+        if isinstance(Object, dict):
+            #show details when Oject is dictonary like a Json
+            print(Json.dumps(Object, indent=2, sort_keys=True))
+        else:
+            #show attributes and methods when Object
+            for members in Inspect.getmembers(Object):
+                    if not members[0].startswith("_") and isinstance(members[1], str):
+                        print("{:<15s}{:>1s}".format(members[0],members[1]))

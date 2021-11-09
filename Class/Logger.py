@@ -1,7 +1,6 @@
 ###LIB###
 import os       as Os
 import sys      as System
-import inspect  as Inspect
 
 from Class.Base import Base
 from datetime   import datetime     as Date
@@ -64,7 +63,6 @@ class Logger(Base):
         print(type(self.message))
         print(self.message)
 
-        #show attributes and methods when message is Object
         self.detail(self.message)
 
         print(" ")
