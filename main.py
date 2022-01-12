@@ -1,16 +1,29 @@
 ###LIB###
 from Class.Logger   import Logger
+from Class.Debug    import Debug as d
+from Class.Account  import Account
 from Class.Api      import Api
 
 
 
 ###MAIN###
 
-#Logger("keke").show()
-#Api().show()
+#Object.show()
+#Object.detail()
 
-Json = Api().get('https://api-fxtrade.oanda.com/v3/accounts')
-#Result = Api().get('https://api-fxtrade.oanda.com/v3/accounts/{oanda_id}')
-#Result = Api().get('https://api-fxtrade.oanda.com/v3/accounts/{oanda_id}/summary')
-#Result = Api().get('https://api-fxtrade.oanda.com/v3/accounts/{oanda_id}/instruments')
-Logger(Json).d()
+#Logger("keke").show()
+
+#Logger(result).info()
+#Logger(result).warn()
+#Logger(result).error()
+
+#Log = Logger("Message")
+#Log.info()
+
+#d(result)
+#d(result).die()
+
+Account().show()
+
+print(" ")
+print("END")

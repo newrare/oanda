@@ -58,15 +58,3 @@ class Logger(Base):
 
     def update(self, message):
         self.message = message
-
-    def d(self):
-        print(type(self.message))
-        print(self.message)
-
-        self.detail(self.message)
-
-        print(" ")
-
-    def dd(self):
-        self.d()
-        System.exit()

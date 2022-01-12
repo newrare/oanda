@@ -20,4 +20,10 @@ class Base:
             #show attributes and methods when Object
             for members in Inspect.getmembers(Object):
                     if not members[0].startswith("_") and isinstance(members[1], str):
-                        print("{:<15s}{:>1s}".format(members[0],members[1]))
+                        if "" != members[1]:
+                            print("{:<15s}{:>1s}".format(members[0],members[1]))
+                        else:
+                            print("{:<15s}{:>1s}".format(members[0],"<null>"))
+
+                    if not members[0].startswith("_") and isinstance(members[1], dict):
+                        print("{:<15s}{:>1s}".format(members[0],"<Object>"))
