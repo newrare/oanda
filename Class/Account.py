@@ -6,12 +6,6 @@ from Class.Api      import Api
 
 
 
-#https://api-fxtrade.oanda.com/v3/accounts
-#https://api-fxtrade.oanda.com/v3/accounts/{oanda_id}
-#https://api-fxtrade.oanda.com/v3/accounts/{oanda_id}/summary
-#https://api-fxtrade.oanda.com/v3/accounts/{oanda_id}/instruments
-
-
 ###CLASS###
 class Account(Base):
     """Account Class"""
@@ -19,6 +13,7 @@ class Account(Base):
     error   = ""
     id      = ""
     balance = 0
+
 
     ##INI##
     def __init__(self):
@@ -39,3 +34,14 @@ class Account(Base):
             return self
 
         self.balance = Account.Result["account"]["balance"]
+
+
+    ##METHOD##
+    def summary(self):
+
+        Summary = Api().get("accounts/" + self.id + "/summary")
+
+        if "" != Summary.error:
+            self.error = Summary.error
+
+            return self

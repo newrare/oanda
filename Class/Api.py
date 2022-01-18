@@ -6,7 +6,6 @@ import requests as Request
 from Class.Base     import Base
 from dotenv         import load_dotenv as Env
 from types          import SimpleNamespace
-from Class.Debug    import Debug as d
 
 Env()
 
@@ -24,7 +23,6 @@ class Api(Base):
     url     = ""
     error   = ""
     Result  = ""
-
 
 
     ##INI##

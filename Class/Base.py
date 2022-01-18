@@ -9,6 +9,9 @@ class Base:
     """Base Abstract Class"""
 
     ##METHOD##
+    def obj(self):
+        return self
+
     def show(self):
         self.detail(self)
 

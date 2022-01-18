@@ -23,7 +23,9 @@ from Class.Api      import Api
 #d(result)
 #d(result).die()
 
-Account().show()
+Obj = Account().obj()
+Obj.summary()
 
+Obj.show()
 print(" ")
 print("END")
