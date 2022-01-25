@@ -1,8 +1,9 @@
 ###LIB###
-from Class.Logger   import Logger
-from Class.Debug    import Debug as d
-from Class.Account  import Account
-from Class.Api      import Api
+from Class.Logger       import Logger
+from Class.Debug        import Debug as d
+from Class.Account      import Account
+from Class.Api          import Api
+from Class.Instrument   import Instrument
 
 
 
@@ -23,9 +24,17 @@ from Class.Api      import Api
 #d(result)
 #d(result).die()
 
-Obj = Account().obj()
-Obj.summary()
+#Broker = Account().obj()
+#d(Broker.summary())
+#d(len(Broker.instruments()))
+#d(Broker.names())
+#Broker.show()
 
-Obj.show()
+#Inst = Instrument('SILVER_USD').obj()
+#Inst.show()
+#OrderBook = Inst.orderBook()
+#d(Inst)
+#d(len(OrderBook["buckets"]))
+
 print(" ")
 print("END")

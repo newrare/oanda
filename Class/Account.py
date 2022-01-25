@@ -3,6 +3,7 @@ import os as Os
 
 from Class.Base     import Base
 from Class.Api      import Api
+from Class.Debug    import Debug as d
 
 
 
@@ -15,33 +16,60 @@ class Account(Base):
     balance = 0
 
 
+
     ##INI##
     def __init__(self):
-        Accounts = Api().get("accounts")
+        Call = Api().get("accounts")
 
-        if "" != Accounts.error:
-            self.error = Accounts.error
+        if "" != Call.error:
+            self.error = Call.error
 
-            return self
+            return
 
-        self.id = Accounts.Result["accounts"][0]["id"]
+        self.id = Call.Result["accounts"][0]["id"]
 
-        Account = Api().get("accounts/" + self.id)
+        CallAccount = Api().get("accounts/" + self.id)
 
-        if "" != Account.error:
-            self.error = Account.error
+        if "" != CallAccount.error:
+            self.error = CallAccount.error
 
-            return self
+            return
 
-        self.balance = Account.Result["account"]["balance"]
+        self.balance = CallAccount.Result["account"]["balance"]
+
 
 
     ##METHOD##
     def summary(self):
+        Call = Api().get("accounts/" + self.id + "/summary")
 
-        Summary = Api().get("accounts/" + self.id + "/summary")
-
-        if "" != Summary.error:
-            self.error = Summary.error
+        if "" != Call.error:
+            self.error = Call.error
 
             return self
+
+        return Call.Result["account"]
+
+
+    def instruments(self):
+        Call = Api().get("accounts/" + self.id + "/instruments")
+
+        if "" != Call.error:
+            self.error = Call.error
+
+            return self
+
+        return Call.Result["instruments"]
+
+
+    def names(self):
+        names       = []
+        instruments = self.instruments()
+
+        if not isinstance(instruments, list):
+            return names
+
+        for Instrument in instruments:
+            names.append(Instrument["name"])
+
+        return names
